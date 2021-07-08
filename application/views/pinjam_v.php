@@ -112,6 +112,7 @@ $(document).ready(function()
                 $('tbody').html(data);
 
                 table = $('#table_pinj').DataTable({
+                    "scrollX": true,
                     colReorder: true,
                     columnDefs: [ {
                     targets: 0,
@@ -125,24 +126,24 @@ $(document).ready(function()
                         style: 'single',           
                     },
                     order: [[ 1, 'asc' ]],
-                    responsive: {
-                        details: {
-                            renderer: function ( api, rowIdx, columns ) {
-                                var data = $.map( columns, function ( col, i ) {
-                                    return col.hidden ?
-                                        '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
-                                            '<td>'+col.title+'</td> '+
-                                            '<td>'+':'+'&nbsp;&nbsp;&nbsp;&nbsp;'+col.data+'</td>'+
-                                        '</tr>' :
-                                        '';
-                                } ).join('');
+                    // responsive: {
+                    //     details: {
+                    //         renderer: function ( api, rowIdx, columns ) {
+                    //             var data = $.map( columns, function ( col, i ) {
+                    //                 return col.hidden ?
+                    //                     '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
+                    //                         '<td>'+col.title+'</td> '+
+                    //                         '<td>'+':'+'&nbsp;&nbsp;&nbsp;&nbsp;'+col.data+'</td>'+
+                    //                     '</tr>' :
+                    //                     '';
+                    //             } ).join('');
             
-                                return data ?
-                                    $('<table/>').append( data ) :
-                                    false;
-                            }
-                        }
-                    }
+                    //             return data ?
+                    //                 $('<table/>').append( data ) :
+                    //                 false;
+                    //         }
+                    //     }
+                    // }
                 }); 
                 
 
